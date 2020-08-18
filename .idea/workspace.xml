@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="725883b8-295e-42eb-953d-0dc73d3a0446" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/$CACHE_FILE$" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Archievirung.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/af21b3d8-0e54-421d-8323-f76148969b81.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/af21b3d8-0e54-421d-8323-f76148969b81/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/qrcode.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GitterBox.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/OrdnerBox.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/connect.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/container_anlegen.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/gitter_box_list.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/home.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/login.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ordner_anlegen.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ordner_archivieren.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Marat Safyanov" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP-7.4" />
+  <component name="ProjectId" id="1g2piTbvXmJBLhisbSuz0fKt4TU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlserver&#10;h2&#10;mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Camphausen\PhpstormProjects\Archievirung\js" />
+      <recent name="C:\Users\Camphausen\PhpstormProjects\Archievirung\templates" />
+      <recent name="C:\Users\Camphausen\PhpstormProjects\Archievirung\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Camphausen\PhpstormProjects\Archievirung\templates" />
+      <recent name="C:\Users\Camphausen\PhpstormProjects\Archievirung\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHP Script.container_anlegen.php">
+    <configuration name="GitterBox.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/GitterBox.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="connect.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/connect.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="container_anlegen.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/templates/container_anlegen.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="gitter_box_list.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/templates/gitter_box_list.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="ordner_anlegen.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/templates/ordner_anlegen.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.container_anlegen.php" />
+        <item itemvalue="PHP Script.connect.php" />
+        <item itemvalue="PHP Script.ordner_anlegen.php" />
+        <item itemvalue="PHP Script.gitter_box_list.php" />
+        <item itemvalue="PHP Script.GitterBox.php" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="725883b8-295e-42eb-953d-0dc73d3a0446" name="Default Changelist" comment="" />
+      <created>1597322669523</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597322669523</updated>
+      <workItem from="1597322670693" duration="4464000" />
+      <workItem from="1597400659154" duration="651000" />
+      <workItem from="1597404620019" duration="2146000" />
+      <workItem from="1597512212393" duration="6784000" />
+      <workItem from="1597571482593" duration="6750000" />
+      <workItem from="1597589146460" duration="3435000" />
+      <workItem from="1597645966095" duration="16228000" />
+      <workItem from="1597731456095" duration="15955000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Project created" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project created" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="224" y="25" key="#CLI_Interpreters" timestamp="1597404719750">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="224" y="25" key="#CLI_Interpreters/0.0.1366.728@0.0.1366.728" timestamp="1597404719750" />
+    <state x="351" y="11" key="#PHP" timestamp="1597404752840">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="351" y="11" key="#PHP/0.0.1366.728@0.0.1366.728" timestamp="1597404752840" />
+    <state x="59" y="205" key="#SQL_Dialects" timestamp="1597658911702">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="59" y="205" key="#SQL_Dialects/0.0.1366.728@0.0.1366.728" timestamp="1597658911702" />
+    <state x="98" y="13" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597731526860">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="98" y="13" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1597731526860" />
+    <state x="476" y="72" key="#com.intellij.ide.util.MemberChooser" timestamp="1597654123271">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="476" y="72" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1597654123271" />
+    <state x="260" y="0" key="CommitChangelistDialog2" timestamp="1597741762977">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="260" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1597741762977" />
+    <state x="424" y="125" key="FileChooserDialogImpl" timestamp="1597518354231">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="424" y="125" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597518354231" />
+    <state width="1322" height="173" key="GridCell.Tab.0.bottom" timestamp="1597752680513">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="173" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597752680513" />
+    <state width="1322" height="173" key="GridCell.Tab.0.center" timestamp="1597752680512">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="173" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597752680512" />
+    <state width="1322" height="173" key="GridCell.Tab.0.left" timestamp="1597752680512">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="173" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597752680512" />
+    <state width="1322" height="173" key="GridCell.Tab.0.right" timestamp="1597752680513">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="173" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597752680513" />
+    <state x="436" y="86" key="NewPhpClassDialog" timestamp="1597517666781">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="436" y="86" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1597517666781" />
+    <state x="479" y="302" key="NewPhpFileDialog" timestamp="1597742589720">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="479" y="302" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1597742589720" />
+    <state x="145" y="0" key="SettingsEditor" timestamp="1597741604620">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="145" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597741604620" />
+    <state x="413" y="168" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog" timestamp="1597733010075">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="168" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog/0.0.1366.728@0.0.1366.728" timestamp="1597733010075" />
+    <state x="526" y="0" width="551" height="589" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1597745881894">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="526" y="0" width="551" height="589" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1597745881894" />
+    <state x="0" y="0" key="com.jetbrains.php.config.phpInfo.PhpInfo.PhpInfoDialog" timestamp="1597404697260">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="0" key="com.jetbrains.php.config.phpInfo.PhpInfo.PhpInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1597404697260" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597517879580">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597517879580" />
+  </component>
+</project>
