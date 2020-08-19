@@ -130,5 +130,16 @@ class OrdnerBox
 
     }
 
+    public function ordnerTrennen($id)
+    {
+        $query = "UPDATE ordnerbox SET gitterbox_id = NULL  WHERE id = '$id' ";
+
+        $sql = mysqli_query(Db::$conn, $query);
+        if (!$sql){
+            die(mysqli_error(Db::$conn));
+        }
+        return $sql;
+    }
+
 
 }

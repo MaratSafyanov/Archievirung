@@ -3,28 +3,38 @@ include "../src/OrdnerBox.php";
 include "../src/GitterBox.php";
 
 
-if (isset($_POST['ordnerMappen'])){
+if (isset($_POST['ordnerMappen'])) {
 
     $ordnerQrCode = $_POST['ordnerBoxQrCode'];
     $box = (new OrdnerBox)->findOrdner($ordnerQrCode);
     $resultOrdner = $box->fetch_assoc();
-    $resultOrdner['id'];
 
     $gitterBoxName = $_POST['gitterBoxQrCode'];
     $gitterBox = (new GitterBox)->findGitterBox($gitterBoxName);
     $resultGitterBox = $gitterBox->fetch_assoc();
-    $resultGitterBox['id'];
-
-    $box = (new OrdnerBox)->ordnerZuordnen( $resultGitterBox['id'], $resultOrdner['id'] );
 
 
-
+    $box = (new OrdnerBox)->ordnerZuordnen($resultGitterBox['id'], $resultOrdner['id']);
 }
+
+    else if (isset($_POST['ordnerEntmappen'])){
+        $ordnerQrCode = $_POST['ordnerBoxQrCode'];
+        $box = (new OrdnerBox)->findOrdner($ordnerQrCode);
+        $resultOrdner = $box->fetch_assoc();
+
+        $gitterBoxName = $_POST['gitterBoxQrCode'];
+        $gitterBox = (new GitterBox)->findGitterBox($gitterBoxName);
+        //$resultGitterBox = $gitterBox->fetch_assoc();
+
+        $box = (new OrdnerBox)->ordnerTrennen ($resultOrdner['id'] );
+
+    }
+
+
 
 
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +74,7 @@ if (isset($_POST['ordnerMappen'])){
         </div>
         <div class="btn-toolbar">
             <div class="btn-group mr-2">
-                <input type="submit" name="ordnerMappen" value="Verbinden" class="btn btn-outline-success">
+                <input type="submit" name="ordnerMappen" value="Verbinden" class="btn btn-outline-success" onclick="fadeAlert()">
             </div>
             <div class="btn-group">
                 <input type="submit" name="ordnerEntmappen" value="Trennen" class="btn btn-outline-success">
@@ -72,8 +82,26 @@ if (isset($_POST['ordnerMappen'])){
         </div>
 
     </form>
+    <br>
+    <br>
+
+    <div role="alert" id="alertId">
+
+    </div>
 
 
 </div>
+
+<script>
+
+    function fadeAlert(){
+        var alert = document.getElementById("alertId");
+        alert.classList.add('.d-block', 'alert' ,'alert-success')
+        alert.innerHTML +=  "A simple success alert with an example link";
+    }
+
+</script>
+
+
 </body>
 </html>
