@@ -38,35 +38,32 @@ include "../src/OrdnerBox.php";
         </tr>
         </thead>
         <tbody>
-
         <?php
-        $ordnerBox = new OrdnerBox();
-        $result = $ordnerBox->getAllOrdner();
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $box = (new OrdnerBox)->getAllOrdnerInGitterBox($id);
+            while ($row = mysqli_fetch_assoc($box)){
 
-        while ($row = mysqli_fetch_assoc($result)) {
+                $id = $row['id'];
+                $titel = $row['titel'];
+                $ablaufsdatum = $row['ablaufsdatum'];
+                $abteilung = $row['abteilung'];
 
-            $id = $row['id'];
-            $titel = $row['titel'];
-            $ablaufsdatum = $row['ablaufsdatum'];
-            $abteilung = $row['abteilung'];
+                echo "<tr>";
 
-            echo "<tr>";
+                echo "<td>{$id}</td>";
+                echo "<td>{$titel}</td>";
+                echo "<td>{$abteilung}</td>";
+                echo "<td>{$ablaufsdatum}</td>";
 
-            echo "<td>{$id}</td>";
-            echo "<td>{$titel}</td>";
-            echo "<td>{$abteilung}</td>";
-            echo "<td>{$ablaufsdatum}</td>";
-
-            echo "</tr>";
-
+                echo "</tr>";
+            }
 
         }
-
         ?>
-
-
 
         </tbody>
     </table>
+
 
 </div>

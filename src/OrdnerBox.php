@@ -150,5 +150,15 @@ class OrdnerBox
         return $sql;
     }
 
+    public function getAllOrdnerInGitterBox($id){
+
+        $query = "SELECT * FROM ordnerbox WHERE gitterbox_id = $id";
+        $sql = mysqli_query(Db::$conn, $query);
+        if (!$sql){
+            die(mysqli_error(Db::$conn));
+        }
+        return $sql;
+    }
+
 
 }
