@@ -141,5 +141,14 @@ class OrdnerBox
         return $sql;
     }
 
+    public function getAllOrdner(){
+        $query = "SELECT * FROM ordnerbox";
+        $sql = mysqli_query(Db::$conn, $query);
+        if (!$sql){
+            die(mysqli_error(Db::$conn));
+        }
+        return $sql;
+    }
+
 
 }
