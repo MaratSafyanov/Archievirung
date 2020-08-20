@@ -1,7 +1,9 @@
 <?php
 include "../src/OrdnerBox.php";
+include "../src/Abteilung.php";
 
 $ordnerBox = new OrdnerBox();
+$abteilung = new Abteilung();
 
 if (isset($_POST ['saveBox'])) {
     $abteilung = $_POST['abteilung'];
@@ -15,53 +17,28 @@ if (isset($_POST ['saveBox'])) {
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <script type="application/javascript" src="../js/qrcode.js"></script>
 
-</head>
-<body>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/templates/includes/header.php"; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/templates/includes/navbar.php"; ?>
+
 
 <div class="container">
-    <div class="row">
 
-        <ul class="nav nav-pills ">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarOrdnerContainerAnlegen" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Ordner / Container anlegen
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarOrdnerContainerAnlegen">
-                    <a class="dropdown-item" href="#">Ordner anlegen</a>
-                    <a class="dropdown-item" href="#">Container anlegen</a>
-                </div>
-            </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ordner Archivieren</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Container suchen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ordner suchen</a>
-            </li>
-        </ul>
-    </div>
     <br>
     <br>
     <form method="post" action="ordner_anlegen.php">
         <div class="form-group">
             <label for="abteilung_select">Abteilung auswählen</label>
             <select class="custom-select" id="abteilung_select" name="abteilung">
-                <option selected>Choose...</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+                <?php
+                $abteilungen = $abteilung->getAllAbteilungen();
+                while ($row = mysqli_fetch_assoc($abteilungen)) {
+                    $abt = $row['abteilung'];
+
+                    echo "<option value=" . $abt . ">" . $abt . "</option>";
+                }
+                ?>
             </select>
 
         </div>
@@ -78,14 +55,17 @@ if (isset($_POST ['saveBox'])) {
         </div>
 
         <div class="form-group">
-            <input class="form-control" type="text" placeholder="Titel" name="titel">
+            <input class="form-control" type="text" placeholder="Titel" name="titel" required>
         </div>
         <div class="form-group">
-            <input class="form-control" type="text" placeholder="Inhalt" name="inhalt">
+            <input class="form-control" type="text" placeholder="Inhalt" name="inhalt" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Inhalt" name="inhalt" required>
         </div>
         <br>
         <input type="text" id="qrCodeText" name="ordnerqrcode">
-        <button type="button" class="btn btn-outline-success" onclick="makeid(10) ; generateQrCodeForBigBox() ">Generate
+        <button type="button" class="btn btn-outline-success" onclick="generateQrCodeForOrdner()">Generate
             QR
         </button>
         <br>
@@ -94,8 +74,8 @@ if (isset($_POST ['saveBox'])) {
         <div id="qrcode"></div>
 
     </form>
-</div>
 
+</div>
 
 <script>
 
@@ -108,15 +88,16 @@ if (isset($_POST ['saveBox'])) {
             result += characters.charAt(Math.floor(Math.random() * charactersLength));
         }
         document.getElementById("qrCodeText").value = result
+        return result
 
     }
 
-    var text = makeid(10)
 
-    function generateQrCodeForBigBox() {
+    function generateQrCodeForOrdner() {
+
         document.getElementById("qrcode").innerHTML = ""
-        new QRCode(document.getElementById("qrcode"), {
-            text: text,
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+
             width: 128,
             height: 128,
             colorDark: "#000000",
@@ -124,6 +105,7 @@ if (isset($_POST ['saveBox'])) {
             correctLevel: QRCode.CorrectLevel.H
 
         });
+        qrcode.makeCode(makeid(10))
     }
 
 
