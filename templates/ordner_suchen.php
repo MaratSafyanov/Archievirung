@@ -1,32 +1,9 @@
-<?php
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/templates/includes/header.php"; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/templates/includes/navbar.php"; ?>
 
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <title>Title</title>
-</head>
-<body>
 <div class="container">
-    <div class="row">
-        <ul class="nav nav-tabs ">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ordner anlegen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ordner Archivieren</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Container suchen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ordner suchen</a>
-            </li>
-        </ul>
-    </div>
+
+    <br>
 
     <form action="ordner_info.php" method="post">
 
@@ -42,12 +19,8 @@
 
         <input type="submit" name="ordnerSuchen" class="btn btn-outline-success">
 
-
     </form>
     <br>
     <br>
-
-
-
 
 </div>

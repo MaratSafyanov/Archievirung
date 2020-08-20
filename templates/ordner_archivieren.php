@@ -15,52 +15,25 @@ if (isset($_POST['ordnerMappen'])) {
 
 
     $box = (new OrdnerBox)->ordnerZuordnen($resultGitterBox['id'], $resultOrdner['id']);
+} else if (isset($_POST['ordnerEntmappen'])) {
+    $ordnerQrCode = $_POST['ordnerBoxQrCode'];
+    $box = (new OrdnerBox)->findOrdner($ordnerQrCode);
+    $resultOrdner = $box->fetch_assoc();
+
+    $gitterBoxName = $_POST['gitterBoxQrCode'];
+    $gitterBox = (new GitterBox)->findGitterBox($gitterBoxName);
+    //$resultGitterBox = $gitterBox->fetch_assoc();
+
+    $box = (new OrdnerBox)->ordnerTrennen($resultOrdner['id']);
+
 }
-
-    else if (isset($_POST['ordnerEntmappen'])){
-        $ordnerQrCode = $_POST['ordnerBoxQrCode'];
-        $box = (new OrdnerBox)->findOrdner($ordnerQrCode);
-        $resultOrdner = $box->fetch_assoc();
-
-        $gitterBoxName = $_POST['gitterBoxQrCode'];
-        $gitterBox = (new GitterBox)->findGitterBox($gitterBoxName);
-        //$resultGitterBox = $gitterBox->fetch_assoc();
-
-        $box = (new OrdnerBox)->ordnerTrennen ($resultOrdner['id'] );
-
-    }
-
-
-
-
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <title>Title</title>
-</head>
-<body>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/templates/includes/header.php"; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/templates/includes/navbar.php"; ?>
+
 <div class="container">
-    <div class="row">
-        <ul class="nav nav-tabs ">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ordner anlegen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ordner Archivieren</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Container suchen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ordner suchen</a>
-            </li>
-        </ul>
-    </div>
 
     <form action="ordner_archivieren.php" method="post">
 
@@ -74,7 +47,8 @@ if (isset($_POST['ordnerMappen'])) {
         </div>
         <div class="btn-toolbar">
             <div class="btn-group mr-2">
-                <input type="submit" name="ordnerMappen" value="Verbinden" class="btn btn-outline-success" onclick="fadeAlert()">
+                <input type="submit" name="ordnerMappen" value="Verbinden" class="btn btn-outline-success"
+                       onclick="fadeAlert()">
             </div>
             <div class="btn-group">
                 <input type="submit" name="ordnerEntmappen" value="Trennen" class="btn btn-outline-success">
@@ -88,20 +62,16 @@ if (isset($_POST['ordnerMappen'])) {
     <div role="alert" id="alertId">
 
     </div>
-
-
 </div>
-
 <script>
 
-    function fadeAlert(){
+    function fadeAlert() {
         var alert = document.getElementById("alertId");
-        alert.classList.add('.d-block', 'alert' ,'alert-success')
-        alert.innerHTML +=  "A simple success alert with an example link";
+        alert.classList.add('.d-block', 'alert', 'alert-success')
+        alert.innerHTML += "A simple success alert with an example link";
     }
 
 </script>
-
 
 </body>
 </html>

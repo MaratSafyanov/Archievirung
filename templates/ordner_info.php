@@ -14,31 +14,13 @@ if (isset($_POST['ordnerSuchen'])) {
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <title>Title</title>
-</head>
-<body>
+    <?php include $_SERVER['DOCUMENT_ROOT']."/templates/includes/header.php"; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT']."/templates/includes/navbar.php"; ?>
+
+
 <div class="container">
-    <div class="row">
-        <ul class="nav nav-tabs ">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ordner anlegen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ordner Archivieren</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Container suchen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ordner suchen</a>
-            </li>
-        </ul>
-    </div>
+
+
 
     <h3><?php echo $titel  ?></h3>
     <p><?php   echo $inhalt ?></p>
