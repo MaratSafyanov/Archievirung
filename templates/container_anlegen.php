@@ -8,43 +8,11 @@ if(isset($_POST ['saveContainer'])){
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <script type="application/javascript" src="/js/qrcode.js"></script>
 
-</head>
-<body>
+    <?php include $_SERVER['DOCUMENT_ROOT']."/templates/includes/header.php"; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT']."/templates/includes/navbar.php"; ?>
 
-<div class="container">
-    <div class="row">
-
-        <ul class="nav nav-pills ">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarOrdnerContainerAnlegen" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Ordner / Container anlegen
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarOrdnerContainerAnlegen">
-                    <a class="dropdown-item" href="#">Ordner anlegen</a>
-                    <a class="dropdown-item" href="#">Container anlegen</a>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ordner Archivieren</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Container suchen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ordner suchen</a>
-            </li>
-        </ul>
-    </div>
+    <div class="container">
     <br>
     <br>
     <form method="post" action="container_anlegen.php">
