@@ -19,7 +19,7 @@ if (isset($_POST ['saveBox'])) {
     $datum = date('Y-m-d', strtotime($ablaufsdatum));
     $qrcodetext = $_POST['ordnerqrcode'];
     $docName = $_POST['dokument'];
-    $dokumentResult= $dokument->findIdDokumentByName($docName);
+    $dokumentResult = $dokument->findIdDokumentByName($docName);
     $dokument_id = $dokumentResult->fetch_array(MYSQLI_NUM)[0];
     $ordnerBox->addNewOrdnerBox($titel, $inhalt, $datum, $qrcodetext, $abteilung, null, $dokument_id);
 }
@@ -51,28 +51,45 @@ if (isset($_POST ['saveBox'])) {
 
         </div>
 
-        <div class="form-group">
-            <label for="ablaufdatum_select">Ablaufdatum auswählen</label>
-            <select class="form-control" id="ablaufdatum_select" name="ablaufsdatum">
-                <option value=""></option>
-                <option value="2 years">2 Jahre</option>
-                <option value="5 years">5 Jahre</option>
-                <option value="10 years">10 Jahre</option>
-                <option value="15 years">15 Jahre</option>
-                <option value="2 weeks">2 Wochen</option>
-            </select>
-            <br>
-            <p>Oder manuell Datum auswählen</p>
 
-            <input type="date" name="ablaufsdatumManuell" class="form-control">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick="datumChecked()" checked>
+            <label class="form-check-label" for="inlineRadio1">Ablaufsdatum auswählen</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick="datumChecked()">
+            <label class="form-check-label" for="inlineRadio2">Ablaufsdatum manuell</label>
+        </div>
+        <br>
+
+        <div class="form-row">
+
+            <div class="col-md-6 mb-3">
+
+                <select class="form-control" id="ablaufdatum_select" name="ablaufsdatum">
+                    <option value=""></option>
+                    <option value="2 years">2 Jahre</option>
+                    <option value="5 years">5 Jahre</option>
+                    <option value="10 years">10 Jahre</option>
+                    <option value="15 years">15 Jahre</option>
+                    <option value="2 weeks">2 Wochen</option>
+                </select>
+            </div>
+
+
+            <div class="col-md-6 mb-3">
+
+                <input type="date" name="ablaufsdatumManuell" class="form-control" id="ablaufdatumManuell" disabled>
+            </div>
         </div>
         <br>
 
         <div class="form-group">
             <input class="form-control" type="text" placeholder="Titel" name="titel" required>
         </div>
-        <div class="form-group">
-            <input class="form-control" type="text" placeholder="Inhalt" name="inhalt" required>
+        <div class="mb-3">
+            <textarea class="form-control is-invalid" placeholder="Inhalt" name="inhalt" required=""></textarea>
         </div>
         <div class="form-group">
             <label for="document_select">Dokument auswählen</label>
@@ -102,6 +119,19 @@ if (isset($_POST ['saveBox'])) {
 </div>
 
 <script>
+
+    function datumChecked() {
+
+        if (document.getElementById("inlineRadio1").checked) {
+            document.getElementById("ablaufdatumManuell").disabled = true;
+            document.getElementById("ablaufdatum_select").disabled = false;
+
+
+        } else if (document.getElementById("inlineRadio2").checked) {
+            document.getElementById("ablaufdatum_select").disabled = true;
+            document.getElementById("ablaufdatumManuell").disabled = false;
+        }
+    }
 
 
     function makeid(length) {
