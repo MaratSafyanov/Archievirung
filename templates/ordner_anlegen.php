@@ -13,9 +13,6 @@ if (isset($_POST ['saveBox'])) {
     $inhalt = $_POST['inhalt'];
 
     $ablaufsdatum = $_POST['ablaufsdatum'];
-    $ablaufsdatumManuell = $_POST['ablaufsdatumManuell'];
-    echo $ablaufsdatumManuell;
-
     $datum = date('Y-m-d', strtotime($ablaufsdatum));
     $qrcodetext = $_POST['ordnerqrcode'];
     $docName = $_POST['dokument'];
@@ -80,7 +77,7 @@ if (isset($_POST ['saveBox'])) {
 
             <div class="col-md-6 mb-3">
 
-                <input type="date" name="ablaufsdatumManuell" class="form-control" id="ablaufdatumManuell" disabled>
+                <input type="date" name="ablaufsdatum" class="form-control" id="ablaufdatumManuell" disabled>
             </div>
         </div>
         <br>
