@@ -11,6 +11,7 @@ class OrdnerBox
     private $ablaufsdatum;
     private $ordnerqrcode;
     private $gitterBoxId;
+    private $documentId;
 
     /**
      * @return mixed
@@ -95,12 +96,12 @@ class OrdnerBox
 
 
     //Funktion, um  neuen OrdnerBox zu estellen
-    public function addNewOrdnerBox($titel, $inhalt, $ablaufsdatum, $ordnerqrcode, $abteilung, $gitterBoxId)
+    public function addNewOrdnerBox($titel, $inhalt, $ablaufsdatum, $ordnerqrcode, $abteilung, $gitterBoxId,$dokument_id)
     {
 
         $gitterBoxId = null;
-        $query ="INSERT INTO ordnerbox(titel, inhalt, ablaufsdatum,ordnerqrcode, abteilung, gitterbox_id)
-                                               VALUES ( '$titel' ,  '$inhalt',  '$ablaufsdatum' , '$ordnerqrcode', '$abteilung', null)";
+        $query ="INSERT INTO ordnerbox(titel, inhalt, ablaufsdatum,ordnerqrcode, abteilung, gitterbox_id, dokument_id)
+                                               VALUES ( '$titel' ,  '$inhalt',  '$ablaufsdatum' , '$ordnerqrcode', '$abteilung', null,  '$dokument_id')";
 
         $sql = mysqli_query(Db::$conn, $query);
         if (!$sql){
@@ -142,7 +143,9 @@ class OrdnerBox
     }
 
     public function getAllOrdner(){
-        $query = "SELECT * FROM ordnerbox";
+        $query = "SELECT ordnerbox.titel, ordnerbox.ablaufsdatum,ordnerbox.abteilung, dokuments.dokument FROM ordnerbox
+                          INNER JOIN dokuments 
+                          ON ordnerbox.dokument_id = dokuments.id";
         $sql = mysqli_query(Db::$conn, $query);
         if (!$sql){
             die(mysqli_error(Db::$conn));

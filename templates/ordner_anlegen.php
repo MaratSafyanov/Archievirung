@@ -1,19 +1,27 @@
 <?php
 include "../src/OrdnerBox.php";
 include "../src/Abteilung.php";
+include "../src/Dokument.php";
 
 $ordnerBox = new OrdnerBox();
 $abteilung = new Abteilung();
+$dokument = new Dokument();
 
 if (isset($_POST ['saveBox'])) {
     $abteilung = $_POST['abteilung'];
     $titel = $_POST['titel'];
     $inhalt = $_POST['inhalt'];
+
     $ablaufsdatum = $_POST['ablaufsdatum'];
+    $ablaufsdatumManuell = $_POST['ablaufsdatumManuell'];
+    echo $ablaufsdatumManuell;
+
     $datum = date('Y-m-d', strtotime($ablaufsdatum));
     $qrcodetext = $_POST['ordnerqrcode'];
-
-    $ordnerBox->addNewOrdnerBox($titel, $inhalt, $datum, $qrcodetext, $abteilung, null);
+    $docName = $_POST['dokument'];
+    $dokumentResult= $dokument->findIdDokumentByName($docName);
+    $dokument_id = $dokumentResult->fetch_array(MYSQLI_NUM)[0];
+    $ordnerBox->addNewOrdnerBox($titel, $inhalt, $datum, $qrcodetext, $abteilung, null, $dokument_id);
 }
 
 ?>
@@ -46,13 +54,19 @@ if (isset($_POST ['saveBox'])) {
         <div class="form-group">
             <label for="ablaufdatum_select">Ablaufdatum auswählen</label>
             <select class="form-control" id="ablaufdatum_select" name="ablaufsdatum">
+                <option value=""></option>
                 <option value="2 years">2 Jahre</option>
                 <option value="5 years">5 Jahre</option>
                 <option value="10 years">10 Jahre</option>
                 <option value="15 years">15 Jahre</option>
                 <option value="2 weeks">2 Wochen</option>
             </select>
+            <br>
+            <p>Oder manuell Datum auswählen</p>
+
+            <input type="date" name="ablaufsdatumManuell" class="form-control">
         </div>
+        <br>
 
         <div class="form-group">
             <input class="form-control" type="text" placeholder="Titel" name="titel" required>
@@ -61,7 +75,17 @@ if (isset($_POST ['saveBox'])) {
             <input class="form-control" type="text" placeholder="Inhalt" name="inhalt" required>
         </div>
         <div class="form-group">
-            <input class="form-control" type="text" placeholder="Inhalt" name="inhalt" required>
+            <label for="document_select">Dokument auswählen</label>
+            <select class="custom-select" id="abteilung_select" name="dokument">
+                <?php
+                $docs = $dokument->getAllDokuments();
+                while ($row = mysqli_fetch_assoc($docs)) {
+                    $docType = $row['dokument'];
+
+                    echo "<option value=" . $docType . ">" . $docType . "</option>";
+                }
+                ?>
+            </select>
         </div>
         <br>
         <input type="text" id="qrCodeText" name="ordnerqrcode">

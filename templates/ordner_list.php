@@ -10,10 +10,11 @@ include "../src/OrdnerBox.php";
     <table class="table table-striped table-hover">
         <thead>
         <tr>
-            <th scope="col">#</th>
+
             <th scope="col">Titel</th>
             <th scope="col">Abteilung</th>
             <th scope="col">Ablaufsdatum</th>
+            <th scope="col">Dokument</th>
         </tr>
         </thead>
         <tbody>
@@ -24,17 +25,17 @@ include "../src/OrdnerBox.php";
 
         while ($row = mysqli_fetch_assoc($result)) {
 
-            $id = $row['id'];
             $titel = $row['titel'];
             $ablaufsdatum = $row['ablaufsdatum'];
             $abteilung = $row['abteilung'];
+            $dokument = $row['dokument'];
 
             echo "<tr>";
 
-            echo "<td>{$id}</td>";
             echo "<td>{$titel}</td>";
             echo "<td>{$abteilung}</td>";
             echo "<td>{$ablaufsdatum}</td>";
+            echo "<td>{$dokument}</td>";
 
             echo "</tr>";
 
