@@ -26,26 +26,21 @@ include "../src/OrdnerBox.php";
 
                 $ordnerQrCode = $_POST['qrCodeText'];
                 $box = (new OrdnerBox)->findOrdner($ordnerQrCode);
-          /*  else if ($_POST['ordnerSuchen'] == null) {
-                $titelText = $_POST['titelText'];
-                $box = (new OrdnerBox)->findOrdner(null, $titelText);
-            }*/
 
                 while ($resultOrdner = mysqli_fetch_assoc($box)) {
                     $titel = $resultOrdner['titel'];
                     $inhalt = $resultOrdner['inhalt'];
                     $ablaufsdatum = $resultOrdner['ablaufsdatum'];
 
-
                     echo "<tr>";
                     echo "<td>{$titel}</td>";
                     echo "<td>{$inhalt}</td>";
                     echo "<td>{$ablaufsdatum}</td>";
                     echo "</tr>";
+
                 }
         }
         ?>
-
 
         </tbody>
     </table>

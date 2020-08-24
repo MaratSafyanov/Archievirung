@@ -12,7 +12,7 @@
                 <a class="nav-link" href="../templates/gitter_box_list.php">Container list</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../templates/ordner_list.php">Ordner list</a>
+                <a class="nav-link" href="../templates/all_ordner_list.php">Ordner list</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../templates/ordner_archivieren.php">Ordner zuordnen</a>
