@@ -28,12 +28,13 @@ include "../src/OrdnerBox.php";
                 $box = (new OrdnerBox)->findOrdner($ordnerQrCode);
 
                 while ($resultOrdner = mysqli_fetch_assoc($box)) {
+                    $id = $resultOrdner['id'];
                     $titel = $resultOrdner['titel'];
                     $inhalt = $resultOrdner['inhalt'];
                     $ablaufsdatum = $resultOrdner['ablaufsdatum'];
 
                     echo "<tr>";
-                    echo "<td>{$titel}</td>";
+                    echo "<td><a href='ordner_info.php?id=$id'>{$titel}</a></td>";
                     echo "<td>{$inhalt}</td>";
                     echo "<td>{$ablaufsdatum}</td>";
                     echo "</tr>";
