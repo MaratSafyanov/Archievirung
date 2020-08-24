@@ -17,11 +17,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="../templates/ordner_archivieren.php">Ordner zuordnen</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../templates/ordner_suchen.php">Ordner suchen</a>
-            </li>
-
         </ul>
+
+        <form class="form-inline my-2 my-lg-0" method="post" action="../templates/ordner_list.php">
+            <input class="form-control mr-sm-2" type="search" placeholder="Suchen Ordner" aria-label="Search" name="qrCodeText">
+            <button class="btn btn-success my-2 my-sm-0" type="submit" name="ordnerSuchen">Suchen</button>
+        </form>
     </div>
 
 </nav>
