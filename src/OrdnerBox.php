@@ -143,7 +143,7 @@ class OrdnerBox
     }
 
     public function getAllOrdner(){
-        $query = "SELECT ordnerbox.titel, ordnerbox.ablaufsdatum,ordnerbox.abteilung, dokuments.dokument FROM ordnerbox
+        $query = "SELECT ordnerbox.id, ordnerbox.titel, ordnerbox.ablaufsdatum,ordnerbox.abteilung, dokuments.dokument FROM ordnerbox
                           INNER JOIN dokuments 
                           ON ordnerbox.dokument_id = dokuments.id";
         $sql = mysqli_query(Db::$conn, $query);
@@ -156,6 +156,16 @@ class OrdnerBox
     public function getAllOrdnerInGitterBox($id){
 
         $query = "SELECT * FROM ordnerbox WHERE gitterbox_id = '$id'";
+        $sql = mysqli_query(Db::$conn, $query);
+        if (!$sql){
+            die(mysqli_error(Db::$conn));
+        }
+        return $sql;
+    }
+
+    public function getOrdnerById($id){
+
+        $query = "SELECT * FROM ordnerbox WHERE id = '$id'";
         $sql = mysqli_query(Db::$conn, $query);
         if (!$sql){
             die(mysqli_error(Db::$conn));

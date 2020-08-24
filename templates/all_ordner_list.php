@@ -24,15 +24,16 @@ include "../src/OrdnerBox.php";
         $result = $ordnerBox->getAllOrdner();
 
         while ($row = mysqli_fetch_assoc($result)) {
-
+            $id = $row['id'];
             $titel = $row['titel'];
             $ablaufsdatum = $row['ablaufsdatum'];
             $abteilung = $row['abteilung'];
             $dokument = $row['dokument'];
 
+
             echo "<tr>";
 
-            echo "<td>{$titel}</td>";
+            echo "<td><a href='ordner_info.php?id=$id'> {$titel}</a></td>";
             echo "<td>{$abteilung}</td>";
             echo "<td>{$ablaufsdatum}</td>";
             echo "<td>{$dokument}</td>";
