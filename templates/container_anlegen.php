@@ -1,7 +1,7 @@
 <?php
 include "../src/GitterBox.php";
- $gitterBox = new GitterBox();
-if(isset($_POST ['saveContainer'])){
+$gitterBox = new GitterBox();
+if (isset($_POST ['saveContainer'])) {
     $name = $_POST['container_name'];
 
     $gitterBox->addNewGitterBox($name);
@@ -9,29 +9,39 @@ if(isset($_POST ['saveContainer'])){
 
 ?>
 
-    <?php include $_SERVER['DOCUMENT_ROOT']."/templates/includes/header.php"; ?>
-    <?php include $_SERVER['DOCUMENT_ROOT']."/templates/includes/navbar.php"; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/templates/includes/header.php"; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/templates/includes/navbar.php"; ?>
 
-    <div class="container">
+<div class="container">
     <br>
-    <br>
-    <form method="post" action="container_anlegen.php">
-        <div class="form-group">
-            <input class="form-control" type="text" placeholder="Container Name" name="container_name" id="container_name">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <form method="post" action="container_anlegen.php">
+
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Container Name" name="container_name"
+                           id="container_name">
+                </div>
+                <button type="button" class="btn btn-outline-success" onclick="generateQrCodeForBigBox() "
+                        data-toggle="modal" data-target="#containerQrCode">Generate QR
+                </button>
+                <hr>
+                <br>
+                <input type="submit" name="saveContainer" class="btn btn-outline-success">
+            </form>
+
+            <br>
+
+            <div id="containerQrCode" class="modal-dialog modal-dialog-centered">
+
+            </div>
+
+
         </div>
-
-        <br>
-        &nbsp
-        <input type="submit" name="saveContainer" class="btn btn-outline-success">
-
-
-    </form>
-    <br>
-    <button type="button" class="btn btn-outline-success" onclick="generateQrCodeForBigBox() ">Generate  QR
-    </button>
-    <div id="containerQrCode"></div>
+    </div>
+    <div class="col-sm-3"></div>
 </div>
-
 <script>
     function generateQrCodeForBigBox() {
         document.getElementById("containerQrCode").innerHTML = ""

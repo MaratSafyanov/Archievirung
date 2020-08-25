@@ -28,91 +28,106 @@ if (isset($_POST ['saveBox'])) {
 
 
 <div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-8">
+            <br>
+            <br>
+            <form method="post" action="ordner_anlegen.php">
+                <div class="row">
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="abteilung_select">Abteilung auswählen</label>
+                        <select class="custom-select" id="abteilung_select" name="abteilung">
+                            <?php
+                            $abteilungen = $abteilung->getAllAbteilungen();
+                            while ($row = mysqli_fetch_assoc($abteilungen)) {
+                                $abt = $row['abteilung'];
+
+                                echo "<option value=" . $abt . ">" . $abt . "</option>";
+                            }
+                            ?>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="document_select">Dokument auswählen</label>
+                        <select class="custom-select" id="abteilung_select" name="dokument">
+                            <?php
+                            $docs = $dokument->getAllDokuments();
+                            while ($row = mysqli_fetch_assoc($docs)) {
+                                $docType = $row['dokument'];
+
+                                echo "<option value=" . $docType . ">" . $docType . "</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
 
 
-    <br>
-    <br>
-    <form method="post" action="ordner_anlegen.php">
-        <div class="form-group">
-            <label for="abteilung_select">Abteilung auswählen</label>
-            <select class="custom-select" id="abteilung_select" name="abteilung">
-                <?php
-                $abteilungen = $abteilung->getAllAbteilungen();
-                while ($row = mysqli_fetch_assoc($abteilungen)) {
-                    $abt = $row['abteilung'];
+                </div>
 
-                    echo "<option value=" . $abt . ">" . $abt . "</option>";
-                }
-                ?>
-            </select>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                           value="option1" onclick="datumChecked()" checked>
+                    <label class="form-check-label" for="inlineRadio1">Ablaufsdatum auswählen</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                           value="option2" onclick="datumChecked()">
+                    <label class="form-check-label" for="inlineRadio2">Ablaufsdatum manuell</label>
+                </div>
+                <br>
+
+                <div class="form-row">
+
+                    <div class="col-md-6 mb-3">
+
+                        <select class="form-control" id="ablaufdatum_select" name="ablaufsdatum">
+                            <option value=""></option>
+                            <option value="2 years">2 Jahre</option>
+                            <option value="5 years">5 Jahre</option>
+                            <option value="10 years">10 Jahre</option>
+                            <option value="15 years">15 Jahre</option>
+                            <option value="2 weeks">2 Wochen</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <input type="date" name="ablaufsdatum" class="form-control" id="ablaufdatumManuell" disabled>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Titel" name="titel" required>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" placeholder="Inhalt" name="inhalt" required=""></textarea>
+                </div>
+
+                <input type="hidden" id="qrCodeText" name="ordnerqrcode">
+                <br>
+
+                <button type="button" class="btn btn-outline-success" onclick="generateQrCodeForOrdner()">Generate QR
+                </button>
+
+                &nbsp;<hr>
+                <input type="submit" name="saveBox" class="btn btn-outline-success">
+
+            </form>
+            <br>
+
+
+            <div id="qrcode"></div>
+
 
         </div>
-
-
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick="datumChecked()" checked>
-            <label class="form-check-label" for="inlineRadio1">Ablaufsdatum auswählen</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick="datumChecked()">
-            <label class="form-check-label" for="inlineRadio2">Ablaufsdatum manuell</label>
-        </div>
-        <br>
-
-        <div class="form-row">
-
-            <div class="col-md-6 mb-3">
-
-                <select class="form-control" id="ablaufdatum_select" name="ablaufsdatum">
-                    <option value=""></option>
-                    <option value="2 years">2 Jahre</option>
-                    <option value="5 years">5 Jahre</option>
-                    <option value="10 years">10 Jahre</option>
-                    <option value="15 years">15 Jahre</option>
-                    <option value="2 weeks">2 Wochen</option>
-                </select>
-            </div>
-
-
-            <div class="col-md-6 mb-3">
-
-                <input type="date" name="ablaufsdatum" class="form-control" id="ablaufdatumManuell" disabled>
-            </div>
-        </div>
-        <br>
-
-        <div class="form-group">
-            <input class="form-control" type="text" placeholder="Titel" name="titel" required>
-        </div>
-        <div class="mb-3">
-            <textarea class="form-control is-invalid" placeholder="Inhalt" name="inhalt" required=""></textarea>
-        </div>
-        <div class="form-group">
-            <label for="document_select">Dokument auswählen</label>
-            <select class="custom-select" id="abteilung_select" name="dokument">
-                <?php
-                $docs = $dokument->getAllDokuments();
-                while ($row = mysqli_fetch_assoc($docs)) {
-                    $docType = $row['dokument'];
-
-                    echo "<option value=" . $docType . ">" . $docType . "</option>";
-                }
-                ?>
-            </select>
-        </div>
-        <br>
-        <input type="text" id="qrCodeText" name="ordnerqrcode">
-        <button type="button" class="btn btn-outline-success" onclick="generateQrCodeForOrdner()">Generate
-            QR
-        </button>
-        <br>
-        &nbsp;
-        <input type="submit" name="saveBox" class="btn btn-outline-success">
-        <div id="qrcode"></div>
-
-    </form>
-
+        <div class="col-sm-2"></div>
+    </div>
 </div>
 
 <script>
