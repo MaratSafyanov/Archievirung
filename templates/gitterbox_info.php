@@ -10,7 +10,7 @@ include "../src/OrdnerBox.php";
     <table class="table table-striped table-hover">
         <thead>
         <tr>
-            <th scope="col">#</th>
+
             <th scope="col">Titel</th>
             <th scope="col">Abteilung</th>
             <th scope="col">Ablaufsdatum</th>
@@ -27,13 +27,20 @@ include "../src/OrdnerBox.php";
                 $titel = $row['titel'];
                 $ablaufsdatum = $row['ablaufsdatum'];
                 $abteilung = $row['abteilung'];
+                $img = null;
 
+                if (date("Y-m-d") > $ablaufsdatum) {
+                    $img="alert-circle.svg";
+                } else {
+                    $img ="check-circle.svg";
+                }
                 echo "<tr>";
 
-                echo "<td>{$id}</td>";
-                echo "<td>{$titel}</td>";
+
+                echo "<td><a href='ordner_info.php?id=$id'>{$titel}</a> </td>";
                 echo "<td>{$abteilung}</td>";
                 echo "<td>{$ablaufsdatum}</td>";
+                echo "<td><img src='../bilder/$img'></td>";
 
                 echo "</tr>";
             }
