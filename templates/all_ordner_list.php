@@ -30,12 +30,20 @@ include "../src/OrdnerBox.php";
             $abteilung = $row['abteilung'];
             $dokument = $row['dokument'];
 
+            $img = null;
+
+            if (date("Y-m-d") > $ablaufsdatum) {
+                $img="alert-circle.svg";
+            } else {
+                $img ="check-circle.svg";
+            }
+
 
             echo "<tr>";
 
             echo "<td><a href='ordner_info.php?id=$id'> {$titel}</a></td>";
             echo "<td>{$abteilung}</td>";
-            echo "<td>{$ablaufsdatum}</td>";
+            echo "<td>{$ablaufsdatum}    <img src='../bilder/$img'></td>";
             echo "<td>{$dokument}</td>";
 
             echo "</tr>";

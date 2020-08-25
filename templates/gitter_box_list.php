@@ -1,44 +1,54 @@
 <?php
 include "../src/GitterBox.php";
+include "../src/OrdnerBox.php";
 ?>
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/templates/includes/header.php"; ?>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/templates/includes/navbar.php"; ?>
 
 <div class="container">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <table class="table  table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
 
-    <table class="table  table-hover">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
 
-        </tr>
-        </thead>
-        <tbody>
+                </tr>
+                </thead>
+                <tbody>
 
-        <?php
-        $ordnerBox = new GitterBox();
-        $result = $ordnerBox->getAllGitterBox();
-        $count = 1;
+                <?php
+                $gitterBox = new GitterBox();
 
-        while ($row = mysqli_fetch_assoc($result)) {
 
-            $id = $row['id'];
-            $name = $row['name'];
-            echo "<tr>";
+                $result = $gitterBox->getAllGitterBox();
+                $count = 1;
 
-            echo "<td>".$count++."</td>";
-            echo "<td><a href='gitterbox_info.php?id=$id'>{$name}</a></td>";
+                while ($row = mysqli_fetch_assoc($result)) {
 
-            echo "</tr>";
+                    $id = $row['id'];
+                    $name = $row['name'];
 
-        }
+                    echo "<tr>";
 
-        ?>
+                    echo "<td>" . $count++ . "</td>";
+                    echo "<td><a href='gitterbox_info.php?id=$id'>{$name}</a>   <img id='image' src=></td>";
 
-        </tbody>
-    </table>
-    <?php ?>
 
+                    echo "</tr>";
+
+                }
+
+                ?>
+
+                </tbody>
+            </table>
+            <?php ?>
+        </div>
+        <div class="col-sm 3"></div>
+    </div>
 </div>
