@@ -19,9 +19,15 @@
             </li>
         </ul>
 
-        <form class="form-inline my-2 my-lg-0" method="post" action="../templates/ordner_list.php">
-            <input class="form-control mr-sm-2" type="search" placeholder="Suchen Ordner" aria-label="Search" name="qrCodeText">
-            <button class="btn btn-success my-2 my-sm-0" type="submit" name="ordnerSuchen">Suchen</button>
+        <form class="form-inline" method="post" action="../templates/ordner_list.php">
+            <div class="input-group">
+                <input class="form-control" type="search" placeholder="Ordner QR Code" aria-label="Search"
+                       name="qrCodeText">
+                <span class="input-group-append">
+                    <input class="btn btn-success " type="submit" name="ordnerSuchen" value="Suchen">
+
+                </span>
+            </div>
         </form>
     </div>
 
