@@ -112,7 +112,8 @@ if (isset($_POST ['saveBox'])) {
                 <input type="hidden" id="qrCodeText" name="ordnerqrcode">
                 <br>
 
-                <button type="button" class="btn btn-outline-success" onclick="generateQrCodeForOrdner()">Generate QR
+                <button type="button" class="btn btn-outline-success" onclick="generateQrCodeForOrdner()"
+                        data-toggle="modal" data-target="#editModal">Generate QR
                 </button>
 
                 &nbsp;<hr>
@@ -121,8 +122,28 @@ if (isset($_POST ['saveBox'])) {
             </form>
             <br>
 
+            <div class="modal fade " id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <!--<form method="post" action="xx">-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title" id="" style="font-size: 7em"></h1>
+                        </div>
+                        <div class="modal-body" id="qrcode">
 
-            <div id="qrcode"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--</form>-->
+            </div>
+        </div>
+
+
+
+
+
 
 
         </div>
@@ -164,17 +185,32 @@ if (isset($_POST ['saveBox'])) {
         document.getElementById("qrcode").innerHTML = ""
         var qrcode = new QRCode(document.getElementById("qrcode"), {
 
-            width: 128,
-            height: 128,
+            width: 400,
+            height: 400,
             colorDark: "#000000",
             colorLight: "#ffffff",
             correctLevel: QRCode.CorrectLevel.H
 
         });
-        qrcode.makeCode(makeid(10))
+        qrcode.makeCode(makeid(12))
     }
 
 
 </script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 </html>
