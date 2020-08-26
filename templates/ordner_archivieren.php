@@ -42,16 +42,15 @@ if (isset($_POST['ordnerMappen'])) {
 
                 <div class="form-group">
                     <label for="ordnerId">Ordner Box</label>
-                    <input type="text" id="ordnerId" name="ordnerBoxQrCode" class="form-control">
+                    <input type="text" id="ordnerId" name="ordnerBoxQrCode" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="containerId">Gitter Box</label>
-                    <input type="text" id="containerId" name="gitterBoxQrCode" class="form-control">
+                    <input type="text" id="containerId" name="gitterBoxQrCode" class="form-control" required>
                 </div>
                 <div class="btn-toolbar">
                     <div class="btn-group mr-auto">
-                        <input type="submit" name="ordnerMappen" value="Verbinden" class="btn btn-outline-success"
-                               onclick="fadeAlert()">
+                        <input type="submit" name="ordnerMappen" value="Verbinden" class="btn btn-outline-success">
                     </div>
                     <div class="btn-group">
                         <input type="submit" name="ordnerEntmappen" value="Trennen" class="btn btn-outline-success">
