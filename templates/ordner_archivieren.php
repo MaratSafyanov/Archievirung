@@ -2,32 +2,6 @@
 include "../src/OrdnerBox.php";
 include "../src/GitterBox.php";
 
-
-if (isset($_POST['ordnerMappen'])) {
-
-    $ordnerQrCode = $_POST['ordnerBoxQrCode'];
-    $box = (new OrdnerBox)->findOrdner($ordnerQrCode);
-    $resultOrdner = $box->fetch_assoc();
-
-    $gitterBoxName = $_POST['gitterBoxQrCode'];
-    $gitterBox = (new GitterBox)->findGitterBox($gitterBoxName);
-    $resultGitterBox = $gitterBox->fetch_assoc();
-
-
-    $box = (new OrdnerBox)->ordnerZuordnen($resultGitterBox['id'], $resultOrdner['id']);
-} else if (isset($_POST['ordnerEntmappen'])) {
-    $ordnerQrCode = $_POST['ordnerBoxQrCode'];
-    $box = (new OrdnerBox)->findOrdner($ordnerQrCode);
-    $resultOrdner = $box->fetch_assoc();
-
-    $gitterBoxName = $_POST['gitterBoxQrCode'];
-    $gitterBox = (new GitterBox)->findGitterBox($gitterBoxName);
-    //$resultGitterBox = $gitterBox->fetch_assoc();
-
-    $box = (new OrdnerBox)->ordnerTrennen($resultOrdner['id']);
-
-}
-
 ?>
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/templates/includes/header.php"; ?>
@@ -58,23 +32,51 @@ if (isset($_POST['ordnerMappen'])) {
                 </div>
 
             </form>
-            <br>
             <hr>
+            <?php
+            $message = null;
+            if (isset($_POST['ordnerMappen'])) {
+
+                $ordnerQrCode = $_POST['ordnerBoxQrCode'];
+                $box = (new OrdnerBox)->findOrdner($ordnerQrCode);
+                $resultOrdner = $box->fetch_assoc();
+
+                $gitterBoxName = $_POST['gitterBoxQrCode'];
+                $gitterBox = (new GitterBox)->findGitterBox($gitterBoxName);
+                $resultGitterBox = $gitterBox->fetch_assoc();
+                $message = '<div class="alert alert-success alert-dismissible fade show"> Erfolgreich! Ordnerbox mit QRCode <strong>' . $resultOrdner['ordnerqrcode'] .
+                                    '</strong> liegt in <strong>' .$resultGitterBox['name'] . '</strong></div>';
+
+
+                $box = (new OrdnerBox)->ordnerZuordnen($resultGitterBox['id'], $resultOrdner['id']);
+            } else if (isset($_POST['ordnerEntmappen'])) {
+                $ordnerQrCode = $_POST['ordnerBoxQrCode'];
+                $box = (new OrdnerBox)->findOrdner($ordnerQrCode);
+                $resultOrdner = $box->fetch_assoc();
+
+                $gitterBoxName = $_POST['gitterBoxQrCode'];
+                $gitterBox = (new GitterBox)->findGitterBox($gitterBoxName);
+                $resultGitterBox = $gitterBox->fetch_assoc();
+
+                $box = (new OrdnerBox)->ordnerTrennen($resultOrdner['id']);
+                $message = '<div class="alert alert-info">Ordnerbox mit QRCode <strong>' . $resultOrdner['ordnerqrcode'] .
+                                    '</strong> liegt <strong>nicht</strong> mehr in <strong>' . $resultGitterBox['name'] . '</strong></div>';
+            }
+
+            ?>
 
             <div role="alert" id="alertId">
-
+                <?php echo $message ?>
             </div>
-            <div class="col-sm-3"></div>
+
+
         </div>
+        <?php ?>
+        <div class="col-sm-3"></div>
     </div>
 </div>
 <script>
 
-    function fadeAlert() {
-        var alert = document.getElementById("alertId");
-        alert.classList.add('.d-block', 'alert', 'alert-success')
-        alert.innerHTML += "A simple success alert with an example link";
-    }
 
 </script>
 
