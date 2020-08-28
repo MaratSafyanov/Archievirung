@@ -1,6 +1,7 @@
 <?php
 include "../src/OrdnerBox.php";
 include "../src/GitterBox.php";
+include "../src/Dokument.php";
 
 ?>
 
@@ -50,13 +51,19 @@ include "../src/GitterBox.php";
 
                 $box = (new OrdnerBox)->ordnerZuordnen($resultGitterBox['id'], $resultOrdner['id']);
             } else if (isset($_POST['ordnerEntmappen'])) {
+
                 $ordnerQrCode = $_POST['ordnerBoxQrCode'];
                 $box = (new OrdnerBox)->findOrdner($ordnerQrCode);
                 $resultOrdner = $box->fetch_assoc();
+                $ablaufsdatum = $resultOrdner['ablaufsdatum'];
 
                 $gitterBoxName = $_POST['gitterBoxQrCode'];
                 $gitterBox = (new GitterBox)->findGitterBox($gitterBoxName);
                 $resultGitterBox = $gitterBox->fetch_assoc();
+
+                if($ablaufsdatum < date("Y-m-d")) {
+                    (new OrdnerBox)->moveOldOrdnerInAnotherTableAfterEntmappenIfDateExpired($resultOrdner['id']);
+                }
 
                 $box = (new OrdnerBox)->ordnerTrennen($resultOrdner['id']);
                 $message = '<div class="alert alert-info">Ordnerbox mit QRCode <strong>' . $resultOrdner['ordnerqrcode'] .
