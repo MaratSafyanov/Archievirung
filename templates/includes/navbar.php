@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-success" style="background-color:#2ed151 ; color: #ffffff">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed" style="background-color:#2ed151 ; color: #ffffff">
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mr-auto">

@@ -29,9 +29,9 @@ if (isset($_POST ['saveBox'])) {
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-2"></div>
+        <div class="col-sm-3"></div>
 
-        <div class="col-sm-8">
+        <div class="col-sm-6">
             <br>
             <br>
             <form method="post" action="ordner_anlegen.php">
@@ -122,9 +122,10 @@ if (isset($_POST ['saveBox'])) {
             </form>
             <br>
 
-            <div class="modal fade " id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
                  aria-hidden="true">
-                <div class="modal-dialog" role="document">
+
+                <div class="modal-dialog" role="img">
                     <!--<form method="post" action="xx">-->
                     <div class="modal-content">
                         <div class="modal-header">
@@ -147,7 +148,7 @@ if (isset($_POST ['saveBox'])) {
 
 
         </div>
-        <div class="col-sm-2"></div>
+        <div class="col-sm-3"></div>
     </div>
 </div>
 
