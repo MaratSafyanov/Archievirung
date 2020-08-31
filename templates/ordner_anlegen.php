@@ -112,12 +112,12 @@ if (isset($_POST ['saveBox'])) {
                 <input type="hidden" id="qrCodeText" name="ordnerqrcode">
                 <br>
 
-                <button type="button" class="btn btn-outline-success" onclick="generateQrCodeForOrdner()"
-                        data-toggle="modal" data-target="#editModal">Generate QR
+                <button type="button" class="btn btn-outline-success" onclick="generateQrCodeForOrdner(); makeSubmitActive()"
+                        data-toggle="modal" data-target="#editModal" >Generate QR
                 </button>
 
                 &nbsp;<hr>
-                <input type="submit" name="saveBox" class="btn btn-outline-success">
+                <input id="saveOrdnerBoxId" type="submit" name="saveBox" class="btn btn-outline-success" disabled>
 
             </form>
             <br>
@@ -153,6 +153,10 @@ if (isset($_POST ['saveBox'])) {
 </div>
 
 <script>
+
+    function makeSubmitActive(){
+        document.getElementById("saveOrdnerBoxId").disabled = false;
+    }
 
     function datumChecked() {
 
