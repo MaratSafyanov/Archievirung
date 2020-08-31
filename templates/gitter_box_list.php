@@ -35,20 +35,17 @@ include "../src/OrdnerBox.php";
                     $name = $row['name'];
 
                    $result2 = $ordnerBox->getAllOrdnerInGitterBox($id);
-                   while ($row2 = mysqli_fetch_assoc($result2)){
+                   while ($row2 = mysqli_fetch_assoc($result2)) {
 
                        $ablaufsdatum = $row2['ablaufsdatum'];
                        if (date("Y-m-d") > $ablaufsdatum){
                            $img = "alert-circle.svg";
                            break;
                        }
-                       else{
+                       elseif (date("Y-m-d") < $ablaufsdatum){
                            $img = "check-circle.svg";
                        }
                    }
-
-
-
 
                     echo "<tr>";
 
@@ -64,7 +61,7 @@ include "../src/OrdnerBox.php";
 
                 </tbody>
             </table>
-            <?php ?>
+
         </div>
         <div class="col-sm 3"></div>
     </div>
