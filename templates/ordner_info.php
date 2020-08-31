@@ -1,17 +1,7 @@
 <?php
 include "../src/OrdnerBox.php";
+include "../src/GitterBox.php";
 include "../src/Dokument.php";
-
-/*if (isset($_POST['ordnerSuchen'])) {
-
-    $ordnerQrCode = $_POST['qrCodeText'];
-    $box = (new OrdnerBox)->findOrdner($ordnerQrCode);
-    $resultOrdner = $box->fetch_assoc();
-    $titel = $resultOrdner['titel'];
-    $inhalt = $resultOrdner['inhalt'];
-    $abteilung = $resultOrdner['abteilung'];
-    $ablaufsdatum = $resultOrdner['ablaufsdatum'];*/
-
 
 ?>
 
@@ -21,16 +11,18 @@ include "../src/Dokument.php";
 <?php
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $dokument  = new Dokument();
-    $dokResult = $dokument->getAllDokuments();
-    $box = (new OrdnerBox)->getOrdnerById($id);
+    //$box = (new OrdnerBox)->getOrdnerById($id);
+    $boooox = (new OrdnerBox)->getDokumentAndGitterBoxById($id);
 
-    $result = $box->fetch_assoc();
 
-    $titel = $result['titel'];
-    $inhalt = $result['inhalt'];
-    $ablaufsdatum = $result['ablaufsdatum'];
-    $qrcode = $result['ordnerqrcode'];
+    while ($row = mysqli_fetch_array($boooox)){
+        $dok =  $row['dokument'];
+        $gitterName =  $row['name'];
+        $titel = $row['titel'];
+        $inhalt = $row['inhalt'];
+        $ablaufsdatum = $row['ablaufsdatum'];
+        $qrcode = $row['ordnerqrcode'];
+
 
     $img = null;
 
@@ -67,6 +59,15 @@ if (isset($_GET['id'])) {
                         </div>
                     </div>
 
+                    <div class="form-group row">
+                        <label for="doku" class="col-sm-2 col-form-label">Dokument</label>
+                        <div class="col-sm-10">
+                            <input readonly class="form-control" id="doku"
+                                      placeholder="" value="<?php echo $dok?>" >
+
+                        </div>
+                    </div>
+
 
                     <div class="form-group row">
                         <label for="ablaufsdatum" class="col-sm-2 col-form-label">Ablaufsdatum</label>
@@ -92,7 +93,7 @@ if (isset($_GET['id'])) {
 
     </div>
 
-<?php } ?>
+<?php } } ?>
 
 
 

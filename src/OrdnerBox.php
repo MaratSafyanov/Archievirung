@@ -188,5 +188,20 @@ class OrdnerBox
         return $sql;
     }
 
+    public function getDokumentAndGitterBoxById($ordnerbox_id){
+
+        $query = "SELECT ordnerbox.titel, ordnerbox.inhalt, ordnerbox.ablaufsdatum, ordnerbox.ordnerqrcode, ordnerbox.abteilung, dokuments.dokument, gitterbox.name
+                        FROM ordnerbox
+                        INNER JOIN  gitterbox ON ordnerbox.gitterbox_id = gitterbox.id
+                        INNER JOIN dokuments ON ordnerbox.dokument_id = dokuments.id
+                        WHERE ordnerbox.id = '$ordnerbox_id'";
+        $sql = mysqli_query(Db::$conn, $query);
+        if (!$sql){
+            die(mysqli_error(Db::$conn));
+        }
+        return $sql;
+
+    }
+
 
 }
