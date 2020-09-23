@@ -1,7 +1,9 @@
 <?php
+session_start();
 include "../src/OrdnerBox.php";
 include "../src/GitterBox.php";
 include "../src/Dokument.php";
+
 
 ?>
 

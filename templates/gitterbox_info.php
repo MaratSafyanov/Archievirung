@@ -1,5 +1,7 @@
 <?php
+session_start();
 include "../src/OrdnerBox.php";
+
 ?>
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/templates/includes/header.php"; ?>

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include "../src/GitterBox.php";
 $gitterBox = new GitterBox();
 if (isset($_POST ['saveContainer'])) {

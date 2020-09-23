@@ -1,6 +1,8 @@
 <?php
+session_start();
 include "../src/GitterBox.php";
 include "../src/OrdnerBox.php";
+
 ?>
 
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/templates/includes/header.php"; ?>

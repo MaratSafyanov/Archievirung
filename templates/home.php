@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/templates/includes/header.php"; ?>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/templates/includes/navbar.php"; ?>
 

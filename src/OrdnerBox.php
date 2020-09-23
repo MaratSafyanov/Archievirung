@@ -99,9 +99,9 @@ class OrdnerBox
     public function addNewOrdnerBox($titel, $inhalt, $ablaufsdatum, $ordnerqrcode, $abteilung, $gitterBoxId,$dokument_id)
     {
 
-        $gitterBoxId = null;
+
         $query ="INSERT INTO ordnerbox(titel, inhalt, ablaufsdatum,ordnerqrcode, abteilung, gitterbox_id, dokument_id)
-                                               VALUES ( '$titel' ,  '$inhalt',  '$ablaufsdatum' , '$ordnerqrcode', '$abteilung', null,  '$dokument_id')";
+                                               VALUES ( '$titel' ,  '$inhalt',  '$ablaufsdatum' , '$ordnerqrcode', '$abteilung', $gitterBoxId,  '$dokument_id')";
 
         $sql = mysqli_query(Db::$conn, $query);
         if (!$sql){
